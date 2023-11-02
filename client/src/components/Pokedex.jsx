@@ -15,6 +15,17 @@ const Pokedex = () => {
   }
 
   useEffect(() => {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
+    .then(resp => resp.json())
+    .then(data => {
+      console.log(data)
+      const sprite = data.sprites.front_shiny
+      const ability = data.abilities.ability
+      console.log(sprite)
+      console.log(ability)
+      setPokeImage(sprite)
+    })
+
     // Write your fetch statement here!
     // It should fetch the link of the sprite for the given pokemon and store it inside the pokeImage state
     //
